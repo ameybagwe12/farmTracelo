@@ -1,81 +1,90 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-size: 1.6rem;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
 
-header {
-    background: #fff;
-    width: 100%;
-    height: 62px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 50px;
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    z-index: 1;
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 8vh;
+  background: rgb(0, 33, 65);
+  
+
 }
-.swach_bharat{
-    position: absolute;
-    left: 0px;
-    height: 39px;
-    top: 7px;
+.nav__brand {
+  font-family: 'Oswald';
+  text-align: left;
+    position: relative;
+   
 }
-header .logo {
-    font-size: 30px;
-    text-transform: uppercase;
-    height: 60px;
+
+.nav__menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 3rem;
+  z-index: 1;
 }
-header nav ul {
-    display: flex;
+.nav__toggler {
+  display: none;
 }
-header nav ul li a {
-    display: inline-block;
-    color: #000;
-    padding: 5px 0;
-    margin: 0 10px;
-    border: 3px solid transparent;
-    text-transform: uppercase;
-    transition: 0.2s;
+.nav__toggler div {
+  width: 2.5rem;
+  height: 0.2rem;
+  margin: 0.4rem;
+  background: rgb(204, 204, 204);
+  transition: 0.3s ease-in;
 }
-header nav ul li a:hover,
-header nav ul li a.active {
-    border-bottom-color: #2A2185;
-    border-bottom-width: 6px;
-}
-.hamburger {
+
+@media screen and (max-width: 768px) {
+  .nav__toggler {
+    display: block;
     cursor: pointer;
-    display: none;
+  }
+  .nav__menu {
+    position: fixed;
+    top: 7vh;
+    right: 0;
+    height: 93vh;
+    width: 50vw;
+    font-size: small;
+    background: rgb(0, 33, 65);
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: 0.5s ease-in;
+  }
 }
-.hamburger div {
-    width: 30px;
-    height: 3px;
-    margin: 5px 0;
-    background: #000;
+/* Active Class */
+.nav__active {
+  transform: translateX(0%);
 }
-@media only screen and (max-width: 900px) {
-    header {
-        padding: 0 30px;
-    }
+
+/* Toggle Icon Animation */
+
+.toggle .line1 {
+  transform: rotate(-45deg) translate(-4px, 5px);
 }
-@media only screen and (max-width: 700px) {
-    .hamburger {
-        display: block;
-    }
-    header nav {
-        position: absolute;
-        width: 100%;
-        left: -100%;
-        top: 70px;
-        width: 100%;
-        background: #fff;
-        padding: 30px;
-        transition: 0.3s;
-    }
-    header #nav_check:checked ~ nav {
-        left: 0;
-    }
-    header nav ul {
-        display: block;
-    }
-    header nav ul li a {
-        margin: 5px 0;
-    }
+.toggle .line2 {
+  opacity: 0;
 }
+.toggle .line3 {
+  transform: rotate(45deg) translate(-4px, -5px);
+}
+
+

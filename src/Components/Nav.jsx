@@ -1,53 +1,62 @@
-import React, { useState } from 'react';
-import '../style/Nav.css';
+import React, { useState } from "react";
+import "../styles/Nav.css";
+import {NavLink} from 'react-router-dom';
 
-import { NavLink } from 'react-router-dom';
-
-
-function Nav() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
+function Navbar() {
+  const [active, setActive] = useState("nav__menu");
+  const [icon, setIcon] = useState("nav__toggler");
+  
+  const handleNav = () => {
+    console.log("NavLink clicked!");
+    setActive("nav__menu");
+    setIcon("nav__toggler");
   };
+  const navToggle = () => {
+    if (active === "nav__menu") {
+      setActive("nav__menu nav__active");
+    } else{  
+      setActive("nav__menu")};
 
+    // Icon Toggler
+    if (icon === "nav__toggler") {
+      setIcon("nav__toggler toggle");
+     
+    } else {
+      setIcon("nav__toggler")};
+  };
+  const handleRedirect = (url) => {
+    window.open(url, '_blank'); // Open the link in a new tab
+
+  };
   return (
-    <header>
-      <div className="logo" ><img alt="national flag" src="https://rural.gov.in/sites/default/files/flag_india.gif"  className="swach_bharat"></img><img src= 'https://i.imgur.com/RZ03mF0.png' style={{height:"57px"}}  alt="Logo" />
+    <nav className="nav">
+      <a href="/" className="nav__brand">
+        FarmTrace.io
+      </a>
+   
+      <ul className={active}>
+        <li className="nav__item">
+        <NavLink to="/" className="nav__link" onClick={handleNav} >Buy
+        </NavLink> 
+        </li>
+        <li className="nav__item">
+        <NavLink to="/about" className="nav__link" onClick={handleNav} >Track</NavLink> 
+        </li>
+        <li className="nav__item">
+        <li className="nav__item">
+        <NavLink to="/contact" className="nav__link"  onClick={handleNav} >Add</NavLink> 
+        </li>
+        </li>
+  
+       
+      </ul>
+      <div onClick={navToggle} className={icon}>
+        <div className="line1"></div>
+        <div className="line2"></div>
+        <div className="line3"></div>
       </div>
-      <input type="checkbox" id="nav_check" hidden />
-      <nav className={isMobileMenuOpen ? 'mobile-menu open' : 'mobile-menu'}>
-        <ul>
-          <li>
-          <NavLink to="/" >Home</NavLink> 
-          </li>
-          <li>
-          <NavLink to="/login">Login</NavLink> 
-          </li>
-          <li>
-          <NavLink to="/projects" > Projects</NavLink> 
-          </li>
-          <li>
-          <NavLink to="/report" > Reports</NavLink> 
-          </li>
-          <li>
-          <NavLink to="/map" > Map</NavLink> 
-          </li>
-          <li>
-          <NavLink to="/logout" > <img src="https://i.imgur.com/9jOmAgK.png" style={{width: "31px",
-            height: "26px"}}></img></NavLink> 
-          
-          </li>
-         
-        </ul>
-      </nav>
-      <label htmlFor="nav_check" className="hamburger" onClick={toggleMobileMenu}>
-        <div></div>
-        <div></div>
-        <div></div>
-      </label>
-    </header>
+    </nav>
   );
 }
 
-export default Nav;
+export default Navbar;
