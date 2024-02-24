@@ -7,7 +7,6 @@ import { Button } from "@mui/material";
 import { NavLink } from "react-router-dom";
 
 export default function Home() {
-  
   return (
     <>
       <div className="homeDiv">
@@ -20,7 +19,7 @@ export default function Home() {
             }}
             className="typewriter"
           >
-            Welcome To Farm Tracelo !!!
+            Welcome To FarmTrace.io !!!
           </p>
         </div>
         <div style={{ marginTop: 200, marginLeft: 800 }}>
