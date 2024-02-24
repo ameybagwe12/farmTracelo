@@ -23,15 +23,19 @@ export default function Home() {
           </p>
         </div>
         <div style={{ marginTop: 200, marginLeft: 800 }}>
-        <NavLink  to="/buy">
-          <Button
-            style={{ fontFamily: "Pixelify Sans", width: 150, height: 70 }}
-            variant="contained"
-            color="success"
-           
-          >
-            Start Farming
-          </Button>
+          <NavLink to="/buy">
+            <Button
+              style={{
+                fontFamily: "Pixelify Sans",
+                width: 150,
+                height: 70,
+                fontSize: 24,
+              }}
+              variant="contained"
+              color="success"
+            >
+              Start Farming
+            </Button>
           </NavLink>
         </div>
       </div>
