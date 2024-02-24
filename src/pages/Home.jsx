@@ -23,7 +23,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div style={{ paddingTop: 150, marginLeft: 800 }}>
+      <div>
         <Button
           style={{ fontFamily: "Pixelify Sans", width: 150, height: 70 }}
           variant="contained"
@@ -32,12 +32,11 @@ export default function Home() {
           Start Farming
         </Button>
       </div>
-      <div
-        className="lottie bounce-in-top"
-        style={{ marginLeft: 60, marginTop: 20 }}
-      >
-        <Lottie animationData={Farmer} />
-      </div>
+
+      <Lottie
+        style={{ marginLeft: 60, width: 900, height: 700 }}
+        animationData={Farmer}
+      />
     </>
   );
 }
