@@ -17,6 +17,7 @@ export default function Track() {
         autoComplete="off"
       >
         <p
+          className="slide-in-elliptic-top-fwd"
           style={{
             fontSize: 35,
             marginTop: 40,
@@ -24,7 +25,7 @@ export default function Track() {
             fontFamily: "Pixelify Sans",
           }}
         >
-          Enter Tracking Id
+          Enter Tracking Id of Prodcut
         </p>
         <div
           style={{
@@ -35,6 +36,7 @@ export default function Track() {
           }}
         >
           <TextField
+            className="slide-in-elliptic-top-fwd"
             style={{ backgroundColor: "white", width: 300 }}
             id="filled-basic"
             label="Enter Transaction Id"
