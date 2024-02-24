@@ -4,8 +4,10 @@ import "../styles/typewriter.css";
 import Lottie from "lottie-react";
 import Farmer from "../assets/AnimationFarmer.json";
 import { Button } from "@mui/material";
+import { NavLink } from "react-router-dom";
 
 export default function Home() {
+  
   return (
     <>
       <div className="homeDiv">
@@ -22,13 +24,16 @@ export default function Home() {
           </p>
         </div>
         <div style={{ marginTop: 200, marginLeft: 800 }}>
+        <NavLink  to="/track">
           <Button
             style={{ fontFamily: "Pixelify Sans", width: 150, height: 70 }}
             variant="contained"
             color="success"
+           
           >
             Start Farming
           </Button>
+          </NavLink>
         </div>
       </div>
 
