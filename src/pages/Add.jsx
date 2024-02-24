@@ -116,7 +116,7 @@ export default function Add({ account, connectWallet }) {
 
   return (
     <>
-      <Navbar />
+      <Navbar account={account} connectWallet={connectWallet} />
       <div style={{ margin: 70 }}>
         <h1
           style={{
