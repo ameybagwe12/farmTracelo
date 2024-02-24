@@ -6,28 +6,34 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-export default function Card1() {
+export default function Card1({nft}) {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345 }} style={{
+      width: "15%",
+      height: "250px",
+      borderRadius: "24px"
+    }}>
     <CardMedia
       component="img"
       alt="green iguana"
       height="140"
-      image="/static/images/cards/contemplative-reptile.jpg"
-    />
+   
+      image="https://minecraft.wiki/images/Wheat_JE2_BE2.png?b8cd3"
+    
+    style={{width:"150px",marginLeft:"20px"}}  />
     <CardContent>
-      <Typography gutterBottom variant="h5" component="div">
-        Lizard
+      <Typography gutterBottom variant="h3" component="div">
+      Wheat
       </Typography>
-      <Typography variant="body2" color="text.secondary">
-        Lizards are a widespread group of squamate reptiles, with over 6,000
-        species, ranging across all continents except Antarctica
+      <Typography variant="h5" color="text.secondary">
+      12/58/55
       </Typography>
+      <Typography variant="h5" color="text.secondary">
+      46262 
+      </Typography>
+
     </CardContent>
-    <CardActions>
-      <Button size="small">Share</Button>
-      <Button size="small">Learn More</Button>
-    </CardActions>
+  
   </Card>
   )
 }

@@ -1,17 +1,20 @@
 import React, { useState } from "react";
 import Navbar from "../Components/Nav";
 import { Button } from "@mui/base";
+import { v4 as uuid } from "uuid";
 import FormInput from "../Components/FormInput";
 
 export default function Add() {
   const [userType, setUserType] = useState("farmer");
-
+  const unique_id = uuid();
+  const small_id = unique_id.slice(0, 4);
+  console.log(small_id);
   const [farmerValues, setFarmerValues] = useState({
-    username: "",
-    email: "",
-    birthday: "",
-    password: "",
-    confirmPassword: "",
+    id: small_id,
+    name: "",
+    price: "",
+    weight: "",
+    
   });
 
   const [traderValues, setTraderValues] = useState({
@@ -26,6 +29,7 @@ export default function Add() {
       placeholder: "Username",
       label: "Product ID",
       required: true,
+      disabled:true
     },
     {
       id: 2,
@@ -58,6 +62,7 @@ export default function Add() {
     {
       id: 1,
       name: "id",
+      value:small_id,
       type: "text",
       placeholder: "Product ID",
       label: "Product ID",
