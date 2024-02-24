@@ -1,0 +1,30 @@
+.typewriter {
+    overflow: hidden; /* Hide overflow to create typing effect */
+    border-right: .15em solid orange; /* Blinking cursor */
+    white-space: nowrap; /* Prevent line breaks */
+    margin: 0 auto; /* Center align text */
+    letter-spacing: .15em; /* Adjust letter spacing */
+    animation: typing 2s steps(40, end), blink-caret .5s step-end infinite;
+    position: absolute;
+    left: 3%;
+  }
+  
+  /* Typing animation keyframes */
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  
+  /* Blinking cursor animation keyframes */
+  @keyframes blink-caret {
+    from, to {
+      border-color: transparent;
+    }
+    50% {
+      border-color: orange;
+    }
+  }
