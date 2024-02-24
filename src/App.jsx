@@ -21,6 +21,7 @@ export default function App() {
         const accounts = await web3Instance.eth.getAccounts();
         setAccount(accounts[0]);
         setContract(new web3Instance.eth.Contract(contractData.contractABI, contractData.contractAddress));
+        console.log("conn: ", account);
       } catch (error) {
         console.error("Error connecting to MetaMask", error);
       }
