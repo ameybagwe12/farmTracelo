@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "../Components/Nav";
+import { Button } from "@mui/base";
 import FormInput from "../Components/FormInput";
 
 export default function Add() {
@@ -47,7 +48,7 @@ export default function Add() {
       id: 4,
       name: "weight",
       type: "number",
-      placeholder: "weight (in kgs)",
+      placeholder: "Weight (in kgs)",
       label: "Weight",
       required: true,
     },
@@ -113,54 +114,79 @@ export default function Add() {
   return (
     <>
       <Navbar />
-
-      <h1
-        style={{
-          textAlign: "center",
-          color: "white",
-          marginBottom: "44px",
-          marginTop: "83px",
-          fontFamily: "Pixelify Sans",
-        }}
-      >
-        Sell Item
-      </h1>
-      <div
-        className="app"
-        style={{ display: "flex", justifyContent: "space-around" }}
-      >
-        <form
-          onSubmit={
-            userType === "farmer" ? handleFarmerSubmit : handleTraderSubmit
-          }
+      <div style={{ margin: 70 }}>
+        <h1
+          style={{
+            textAlign: "center",
+            color: "white",
+            marginBottom: "44px",
+            marginTop: "83px",
+            fontFamily: "Pixelify Sans",
+            fontSize: 35,
+          }}
         >
-          {userType === "farmer"
-            ? inputs.map((input) => (
-                <FormInput
-                  key={input.id}
-                  {...input}
-                  value={farmerValues[input.name]}
-                  onChange={handleInputChange}
-                />
-              ))
-            : inputs1.map((input) => (
-                <FormInput
-                  key={input.id}
-                  {...input}
-                  value={traderValues[input.name]}
-                  onChange={handleInputChange}
-                  s
-                />
-              ))}
-          <button type="submit">Submit</button>
-        </form>
+          Sell Item
+        </h1>
+        <div
+          className="bounce-in-top"
+          style={{ display: "flex", justifyContent: "space-around" }}
+        >
+          <form
+            className="bounce-in-top"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              flexDirection: "column",
+              backgroundColor: "#436850",
+              justifyContent: "center",
+              paddingLeft: 40,
+              paddingRight: 40,
+              borderRadius: 10,
+            }}
+            onSubmit={
+              userType === "farmer" ? handleFarmerSubmit : handleTraderSubmit
+            }
+          >
+            {userType === "farmer"
+              ? inputs.map((input) => (
+                  <FormInput
+                    key={input.id}
+                    {...input}
+                    value={farmerValues[input.name]}
+                    onChange={handleInputChange}
+                  />
+                ))
+              : inputs1.map((input) => (
+                  <FormInput
+                    key={input.id}
+                    {...input}
+                    value={traderValues[input.name]}
+                    onChange={handleInputChange}
+                  />
+                ))}
+            <Button
+              style={{
+                fontFamily: "Pixelify Sans",
+                width: 150,
+                height: 70,
+                fontSize: 20,
+                color: "#9BCF53",
+                fontWeight: "bold",
+              }}
+              variant="contained"
+              color="success"
+            >
+              Submit
+            </Button>
+          </form>
 
-        <div>
-          {userType === "farmer" ? (
-            <img src={require("../assets/farmer.png")} />
-          ) : (
-            <img src={require("../assets/trader.png")} />
-          )}
+          <div>
+            {userType === "farmer" ? (
+              <img src={require("../assets/farmer.png")} />
+            ) : (
+              <img src={require("../assets/trader.png")} />
+            )}
+          </div>
         </div>
       </div>
     </>
