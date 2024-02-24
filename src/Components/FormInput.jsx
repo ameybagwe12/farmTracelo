@@ -3,7 +3,8 @@ import "../styles/formInput.css";
 
 const FormInput = (props) => {
   const [focused, setFocused] = useState(false);
-  const { label, errorMessage, onChange, id, ...inputProps } = props;
+  const { label, errorMessage, onChange, id, placeholderColor, ...inputProps } =
+    props;
 
   const handleFocus = (e) => {
     setFocused(true);
@@ -20,6 +21,10 @@ const FormInput = (props) => {
           inputProps.name === "confirmPassword" && setFocused(true)
         }
         focused={focused.toString()}
+        style={{
+          fontFamily: "Pixelify Sans",
+          placeholderColor: placeholderColor,
+        }}
       />
       <span>{errorMessage}</span>
     </div>

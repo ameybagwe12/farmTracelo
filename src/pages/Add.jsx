@@ -62,6 +62,7 @@ export default function Add() {
       placeholder: "Product ID",
       label: "Product ID",
       required: true,
+      placeholderColor: "#9BCF53",
     },
     {
       id: 2,
@@ -70,7 +71,7 @@ export default function Add() {
       placeholder: "Product Name",
       label: "Product Name",
       required: true,
-
+      placeholderColor: "#9BCF53",
       disabled: true,
     },
 
@@ -81,6 +82,7 @@ export default function Add() {
       placeholder: "Price",
       label: "Price",
       required: true,
+      placeholderColor: "#9BCF53",
     },
     {
       id: 4,
@@ -89,6 +91,7 @@ export default function Add() {
       placeholder: "weight (in kgs)",
       label: "Weight",
       required: true,
+      placeholderColor: "#9BCF53",
     },
     // Add other common fields
   ];
