@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../styles/Nav.css";
 import { NavLink } from "react-router-dom";
+import { Button } from "@mui/base";
 
 function Navbar() {
   const [active, setActive] = useState("nav__menu");
@@ -25,9 +26,7 @@ function Navbar() {
       setIcon("nav__toggler");
     }
   };
-  const handleRedirect = (url) => {
-    window.open(url, "_blank"); // Open the link in a new tab
-  };
+
   return (
     <nav className="nav">
       <ul className={active}>
@@ -63,6 +62,20 @@ function Navbar() {
           </NavLink>
         </li>
       </ul>
+      <div>
+        <Button
+          style={{
+            fontFamily: "Pixelify Sans",
+            width: 300,
+            height: 70,
+            fontSize: 20,
+          }}
+          variant="contained"
+          color="success"
+        >
+          Connect Metamask
+        </Button>
+      </div>
       <div onClick={navToggle} className={icon}>
         <div className="line1"></div>
         <div className="line2"></div>
