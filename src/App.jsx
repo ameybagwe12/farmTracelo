@@ -1,6 +1,10 @@
 import React from "react";
 import Home from "./pages/Home";
-
+import "./styles/App.css";
 export default function App() {
-  return <Home />;
+  return (
+    <div className="background">
+      <Home />
+    </div>
+  );
 }

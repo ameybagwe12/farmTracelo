@@ -1,30 +1,33 @@
 .typewriter {
-    overflow: hidden; /* Hide overflow to create typing effect */
-    border-right: .15em solid orange; /* Blinking cursor */
-    white-space: nowrap; /* Prevent line breaks */
-    margin: 0 auto; /* Center align text */
-    letter-spacing: .15em; /* Adjust letter spacing */
-    animation: typing 2s steps(40, end), blink-caret .5s step-end infinite;
-    position: absolute;
-    left: 3%;
+  overflow: hidden; /* Hide overflow to create typing effect */
+  border-right: 0.15em solid orange; /* Blinking cursor */
+  white-space: nowrap; /* Prevent line breaks */
+  margin: 0 auto; /* Center align text */
+  letter-spacing: 0.15em; /* Adjust letter spacing */
+  animation: typing 2s steps(40, end), blink-caret 0.5s step-end infinite;
+  position: absolute;
+  left: 3%;
+  font-family: "Pixelify Sans", sans-serif;
+  color: white;
+}
+
+/* Typing animation keyframes */
+@keyframes typing {
+  from {
+    width: 0;
   }
-  
-  /* Typing animation keyframes */
-  @keyframes typing {
-    from {
-      width: 0;
-    }
-    to {
-      width: 100%;
-    }
+  to {
+    width: 25%;
   }
-  
-  /* Blinking cursor animation keyframes */
-  @keyframes blink-caret {
-    from, to {
-      border-color: transparent;
-    }
-    50% {
-      border-color: orange;
-    }
+}
+
+/* Blinking cursor animation keyframes */
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
   }
+  50% {
+    border-color: orange;
+  }
+}
