@@ -11,7 +11,11 @@ body {
   font-size: 1.6rem;
 }
 li {
+    margin-top: 10px;
   list-style: none;
+  background-color: 	#5b8731;
+  padding: 10px 38px;
+  border-radius: 2px;
 }
 a {
   text-decoration: none;
@@ -23,7 +27,7 @@ a {
   align-items: center;
   justify-content: space-around;
   height: 8vh;
-  background: rgb(0, 33, 65);
+  
   
 
 }
@@ -64,7 +68,7 @@ a {
     height: 93vh;
     width: 50vw;
     font-size: small;
-    background: rgb(0, 33, 65);
+    
     flex-direction: column;
     transform: translateX(100%);
     transition: 0.5s ease-in;

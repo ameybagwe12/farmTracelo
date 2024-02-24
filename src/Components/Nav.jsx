@@ -30,9 +30,7 @@ function Navbar() {
   };
   return (
     <nav className="nav">
-      <a href="/" className="nav__brand">
-        FarmTrace.io
-      </a>
+    
    
       <ul className={active}>
         <li className="nav__item">
@@ -42,11 +40,11 @@ function Navbar() {
         <li className="nav__item">
         <NavLink to="/about" className="nav__link" onClick={handleNav} >Track</NavLink> 
         </li>
-        <li className="nav__item">
+        
         <li className="nav__item">
         <NavLink to="/contact" className="nav__link"  onClick={handleNav} >Add</NavLink> 
         </li>
-        </li>
+     
   
        
       </ul>
