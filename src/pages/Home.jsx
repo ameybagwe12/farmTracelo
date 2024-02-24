@@ -14,29 +14,30 @@ export default function Home() {
             style={{
               marginLeft: 400,
               fontSize: 50,
-              marginTop: 10,
+              marginTop: 50,
             }}
             className="typewriter"
           >
             Welcome To Farm Tracelo !!!
           </p>
         </div>
+        <div style={{ marginTop: 200, marginLeft: 800 }}>
+          <Button
+            style={{ fontFamily: "Pixelify Sans", width: 150, height: 70 }}
+            variant="contained"
+            color="success"
+          >
+            Start Farming
+          </Button>
+        </div>
       </div>
 
-      <div>
-        <Button
-          style={{ fontFamily: "Pixelify Sans", width: 150, height: 70 }}
-          variant="contained"
-          color="success"
-        >
-          Start Farming
-        </Button>
+      <div style={{ marginLeft: 350 }} className="bounce-in-top">
+        <Lottie
+          style={{ marginLeft: 60, width: 900, height: 700 }}
+          animationData={Farmer}
+        />
       </div>
-
-      <Lottie
-        style={{ marginLeft: 60, width: 900, height: 700 }}
-        animationData={Farmer}
-      />
     </>
   );
 }
