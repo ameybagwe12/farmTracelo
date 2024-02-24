@@ -7,7 +7,6 @@ import { Button } from "@mui/material";
 import { NavLink } from "react-router-dom";
 
 export default function Home() {
-  
   return (
     <>
       <div className="homeDiv">
@@ -20,19 +19,23 @@ export default function Home() {
             }}
             className="typewriter"
           >
-            Welcome To Farm Tracelo !!!
+            Welcome To FarmTrace.io !!!
           </p>
         </div>
         <div style={{ marginTop: 200, marginLeft: 800 }}>
-        <NavLink  to="/track">
-          <Button
-            style={{ fontFamily: "Pixelify Sans", width: 150, height: 70 }}
-            variant="contained"
-            color="success"
-           
-          >
-            Start Farming
-          </Button>
+          <NavLink to="/track">
+            <Button
+              style={{
+                fontFamily: "Pixelify Sans",
+                width: 150,
+                height: 70,
+                fontSize: 20,
+              }}
+              variant="contained"
+              color="success"
+            >
+              Start Farming
+            </Button>
           </NavLink>
         </div>
       </div>
