@@ -34,15 +34,15 @@ function Navbar() {
    
       <ul className={active}>
         <li className="nav__item">
-        <NavLink to="/" className="nav__link" onClick={handleNav} >Buy
+        <NavLink to="/buy" className="nav__link" onClick={handleNav} >Buy
         </NavLink> 
         </li>
         <li className="nav__item">
-        <NavLink to="/about" className="nav__link" onClick={handleNav} >Track</NavLink> 
+        <NavLink to="/track" className="nav__link" onClick={handleNav} >Track</NavLink> 
         </li>
         
         <li className="nav__item">
-        <NavLink to="/contact" className="nav__link"  onClick={handleNav} >Add</NavLink> 
+        <NavLink to="/add" className="nav__link"  onClick={handleNav} >Add</NavLink> 
         </li>
      
   

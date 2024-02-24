@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from './Nav'
+import Navbar from '../Components/Nav'
 export default function Buy() {
   return (<>
     <Navbar/>
