@@ -1,8 +1,8 @@
 import React from 'react'
 import Navbar from '../Components/Nav'
-export default function Buy() {
+export default function Buy({ account, connectWallet }) {
   return (<>
-    <Navbar/>
+    <Navbar account={account} connectWallet={connectWallet} />
     </>
     
   )

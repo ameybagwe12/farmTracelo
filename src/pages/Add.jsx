@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Navbar from "../Components/Nav";
 import FormInput from "../Components/FormInput";
 
-export default function Add() {
+export default function Add({ account, connectWallet }) {
   const [userType, setUserType] = useState("farmer");
 
   const [farmerValues, setFarmerValues] = useState({
@@ -112,7 +112,7 @@ export default function Add() {
 
   return (
     <>
-      <Navbar />
+      <Navbar account={account} connectWallet={connectWallet} />
 
       <h1
         style={{

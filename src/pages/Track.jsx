@@ -4,10 +4,10 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import "../styles/Track.css";
 
-export default function Track() {
+export default function Track({ account, connectWallet }) {
   return (
     <>
-      <Navbar />
+      <Navbar account={account} connectWallet={connectWallet} />
       <Box
         component="form"
         sx={{
