@@ -1,0 +1,7 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three cards in a row */
+  gap: 20px;
+  padding: 20px;
+  justify-content: space-around;
+}

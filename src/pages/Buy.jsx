@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Web3 } from "web3";
 import Card1 from "../Components/Card1";
 import Navbar from "../Components/Nav";
+import "../styles/Buy.css";
 
 export default function Buy({ account, contract, connectWallet }) {
   const [buyData, setBuyData] = useState("");
@@ -24,6 +25,7 @@ export default function Buy({ account, contract, connectWallet }) {
     <>
       <Navbar account={account} connectWallet={connectWallet} />
       <div
+        className="grid"
         style={{
           display: "flex",
           flexWrap: "wrap",
@@ -33,7 +35,7 @@ export default function Buy({ account, contract, connectWallet }) {
       >
         {buyData &&
           buyData.map((product, index) => (
-            <Card1 key={index} product={product} />
+            <Card1 className="col" key={index} product={product} />
           ))}
       </div>
     </>

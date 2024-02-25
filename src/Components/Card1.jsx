@@ -1,21 +1,19 @@
 import React from "react";
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import "../styles/Buy.css";
 
 export default function Card1({ product }) {
   const randomNumber = Math.floor(Math.random() * 317) + 1;
-  console.log(product.price);
 
   return (
     <Card
       sx={{ maxWidth: 345 }}
       style={{
-        width: "15%",
-        height: "250px",
+        width: "20%",
+        height: "300px",
         borderRadius: "24px",
       }}
     >
@@ -25,15 +23,57 @@ export default function Card1({ product }) {
         height="140"
         image={require(`../assets/mc_skin_faces/1 (${randomNumber}).png`)}
       />
-      <CardContent>
-        <Typography gutterBottom variant="h3" component="div">
+      <CardContent
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <Typography
+          style={{ fontFamily: "Pixelify Sans" }}
+          className="cardTypo"
+          gutterBottom
+          variant="h3"
+          component="div"
+        >
           {product.name}
         </Typography>
-        <Typography variant="h5" color="text.secondary">
+
+        <Typography
+          style={{ fontFamily: "Pixelify Sans" }}
+          className="cardTypo"
+          variant="h5"
+          component="div"
+        >
+          Product Id - {product.prod_id}
+        </Typography>
+        <Typography
+          style={{ fontFamily: "Pixelify Sans" }}
+          className="cardTypo"
+          variant="h5"
+          color="text.secondary"
+        >
           Price - {Number(product.price)} Rs.
         </Typography>
-        <Typography variant="h5" color="text.secondary">
+
+        <Typography
+          style={{ fontFamily: "Pixelify Sans" }}
+          className="cardTypo"
+          variant="h5"
+          color="text.secondary"
+        >
           Bought Weight - {Number(product.bought_weight)} Kg
+        </Typography>
+
+        <Typography
+          style={{ fontFamily: "Pixelify Sans" }}
+          className="cardTypo"
+          variant="h5"
+          color="text.secondary"
+        >
+          Date Issued - {product.date}
         </Typography>
       </CardContent>
     </Card>

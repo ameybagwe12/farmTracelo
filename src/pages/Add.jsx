@@ -25,7 +25,7 @@ export default function Add({ account, contract, connectWallet }) {
       new Web3.providers.HttpProvider("http://localhost:7545")
     );
 
-    console.log(`Values: ${farmerValues.price}`)
+    console.log(`Values: ${farmerValues.price}`);
     contract.methods
       .addProductByFarmer(
         farmerValues.id,
@@ -169,7 +169,7 @@ export default function Add({ account, contract, connectWallet }) {
           style={{
             textAlign: "center",
             color: "white",
-            marginTop: "60px",
+            marginTop: "40px",
             fontFamily: "Pixelify Sans",
             fontSize: 35,
           }}
@@ -223,8 +223,8 @@ export default function Add({ account, contract, connectWallet }) {
             <Button
               style={{
                 fontFamily: "Pixelify Sans",
-                width: 150,
-                height: 70,
+                width: 100,
+                height: 60,
                 fontSize: 20,
                 color: "#9BCF53",
                 fontWeight: "bold",
