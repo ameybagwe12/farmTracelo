@@ -105,7 +105,7 @@ export default function Add({ account, contract, connectWallet }) {
       label: "Photo",
       required: true,
       accept: "image/*",
-      id: "nft-thumbnail",
+      id: "nft-image",
       onChange: (e) => setNftFile(e.target.files[0]),
       placeholderColor: "#9BCF53",
     },  
