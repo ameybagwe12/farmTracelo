@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Web3 from "web3";
-import contractData from "./smart-contract/build/contracts/PT.json";
 import Add from "./pages/Add";
 import Buy from "./pages/Buy";
 import Home from "./pages/Home";
 import List from "./pages/List";
 import Track from "./pages/Track";
+import contractData from "./smart-contract/build/contracts/PT.json";
 import "./styles/App.css";
 
 export default function App() {
@@ -76,7 +76,8 @@ export default function App() {
         />
         <Route
           path="/myList"
-          element={<List account={account} connectWallet={initializeWeb3} />}
+      
+          element={<List account={account} contract={contract} connectWallet={initializeWeb3} />}
         />
       </Routes>
     </div>
