@@ -5,6 +5,7 @@ contract PT {
     struct Product {
         string prod_id;
         string name;
+        string fileUrl;
         string date;
         uint bought_weight;
         address seller;
@@ -23,12 +24,14 @@ contract PT {
         string calldata _date,
         uint _bought_weight,
         // uint _sold_weight,
-        uint price
+        uint price,
+        string memory fileUrl
     ) public {
         Product memory product = Product(
             id,
             _name,
             _date,
+            fileUrl,
             _bought_weight,
             msg.sender,
             // _sold_weight,
@@ -66,6 +69,7 @@ contract PT {
             prevProduct.name,
             // prevProduct.bought_weight,
             _date,
+            transactions[_prev].fileUrl,
             weight_to_buy,
             msg.sender,
             price,
@@ -75,6 +79,10 @@ contract PT {
 
         transactions[_id] = product;
         list.push(_id);
+    }
+
+    function consumeProduct(string memory _prod_id) public {
+        transactions[_prod_id].isConsumed = true;
     }
 
     function getProduct(

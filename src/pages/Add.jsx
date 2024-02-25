@@ -4,10 +4,13 @@ import { v4 as uuid } from "uuid";
 import { Web3 } from "web3";
 import FormInput from "../Components/FormInput";
 import Navbar from "../Components/Nav";
+import key from '../key.json';
+import axios from 'axios';
 
 export default function Add({ account, contract, connectWallet }) {
   const [userType, setUserType] = useState("farmer");
   const [nftFile, setNftFile] = useState("");
+  const [fileUrl, setFileUrl] = useState("");
   const unique_id = uuid();
   const small_id = unique_id.slice(0, 4);
   const today = new Date();
@@ -19,6 +22,7 @@ export default function Add({ account, contract, connectWallet }) {
     price: "",
     weight: "",
     date: formattedDate,
+    fileUrl: fileUrl,
   });
 
   const addProduct = async () => {
@@ -33,7 +37,8 @@ export default function Add({ account, contract, connectWallet }) {
         farmerValues.name,
         farmerValues.date.toString(),
         Number(farmerValues.weight),
-        Number(farmerValues.price)
+        Number(farmerValues.price),
+        farmerValues.fileUrl
       )
       .send({ from: account })
       .then((hash) => {
@@ -44,6 +49,7 @@ export default function Add({ account, contract, connectWallet }) {
           price: "",
           weight: "",
           date: formattedDate,
+          fileUrl: fileUrl,
         });
       });
   };
@@ -157,6 +163,39 @@ export default function Add({ account, contract, connectWallet }) {
     // Handle farmer form submission
     console.log("Farmer form submitted:", farmerValues);
   };
+
+  const uploadToIPFS = async () => {
+    console.log("ipfs uploading...");
+    // console.log(product);
+    // const product_id = Number(product[0]);
+    // if (!(product_id && file)) return alert("Please select a Product ID and upload a report");
+    try {
+        const fileData = new FormData();
+        fileData.append("file", nftFile);
+
+        const res = await axios({
+            method: "post",
+            url: "https://api.pinata.cloud/pinning/pinFileToIPFS",
+            data: fileData,
+            headers: {
+                pinata_api_key: key.API_Key,
+                pinata_secret_api_key: key.API_Secret,
+                "Content-Type": "multipart/form-data"
+            }
+        });
+        console.log("res ", res);
+        const ipfsHash = res.data.IpfsHash;
+        console.log(ipfsHash);
+        setFileUrl("https://cyan-magnetic-rat-616.mypinata.cloud/ipfs/" + ipfsHash);
+        console.log(fileUrl);
+
+        // await contract.methods.uploadCompanyReport(product_id, fileUrl).send({ from: account });
+        console.log("trxn success");
+
+    } catch (e) {
+        console.log(e);
+    }
+  }
 
   const handleTraderSubmit = (e) => {
     e.preventDefault();
