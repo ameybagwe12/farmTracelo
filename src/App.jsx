@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import Home from "./pages/Home";
-import "./styles/App.css";
-import { Routes, Route } from "react-router-dom";
-import Track from "./pages/Track";
-import Buy from "./pages/Buy";
-import Add from "./pages/Add";
+import { Route, Routes } from "react-router-dom";
 import Web3 from "web3";
-import contractData from "./contract/contract.json";
+import contractData from "./contract/PT.json";
+import Add from "./pages/Add";
+import Buy from "./pages/Buy";
+import Home from "./pages/Home";
 import List from "./pages/List";
+import Track from "./pages/Track";
+import "./styles/App.css";
 
 export default function App() {
   const [account, setAccount] = useState(null);
@@ -22,7 +22,7 @@ export default function App() {
         setAccount(accounts[0]);
         setContract(
           new web3Instance.eth.Contract(
-            contractData.contractABI,
+            contractData.abi,
             contractData.contractAddress
           )
         );
@@ -56,7 +56,7 @@ export default function App() {
         />
         <Route
           path="/buy"
-          element={<Buy account={account} connectWallet={initializeWeb3} />}
+          element={<Buy account={account} contract={contract} connectWallet={initializeWeb3} />}
         />
         <Route
           path="/add"
