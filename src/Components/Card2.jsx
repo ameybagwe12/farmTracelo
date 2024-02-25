@@ -9,6 +9,7 @@ import { Button } from '@mui/material';
 
 
 export default function Card2({nft}) {
+  const randomNumber = Math.floor(Math.random() * 317) + 1;
   return (
     <>    <Card sx={{ maxWidth: 345 }} style={{
       width: "15%",
@@ -19,10 +20,9 @@ export default function Card2({nft}) {
       component="img"
       alt="green iguana"
       height="140"
-   
-      image="https://minecraft.wiki/images/Wheat_JE2_BE2.png?b8cd3"
+      image={require(`../assets/mc_skin_faces/1 (${randomNumber}).png`)}
     
-    style={{width:"150px",marginLeft:"20px"}}  />
+     />
     <CardContent>
       <Typography gutterBottom variant="h3" component="div">
       Wheat
