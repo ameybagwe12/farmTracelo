@@ -5,7 +5,20 @@ export default function Buy({ account, connectWallet }) {
   return (
     <>
       <Navbar account={account} connectWallet={connectWallet} />
-      <Card1 />
+      <div style={{
+        display:"flex",
+         flexWrap: "wrap",
+       justifyContent:"space-around",
+       marginTop:"50px"
+       }}>
+         <Card1 />
+         <Card1 />
+         <Card1 />
+         <Card1 /> 
+     
+       </div>
     </>
   );
 }
+
+
