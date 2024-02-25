@@ -4,7 +4,7 @@ import { Button } from "@mui/base";
 import { v4 as uuid } from "uuid";
 import FormInput from "../Components/FormInput";
 
-export default function Add() {
+export default function Add({ account, connectWallet }) {
   const [userType, setUserType] = useState("farmer");
   const unique_id = uuid();
   const small_id = unique_id.slice(0, 4);
@@ -121,7 +121,7 @@ export default function Add() {
 
   return (
     <>
-      <Navbar />
+      <Navbar account={account} connectWallet={connectWallet} />
       <div style={{ margin: 70 }}>
         <h1
           style={{

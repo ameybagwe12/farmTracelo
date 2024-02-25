@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../styles/Home.css";
 import "../styles/typewriter.css";
 import Lottie from "lottie-react";
@@ -6,7 +6,8 @@ import Farmer from "../assets/AnimationFarmer.json";
 import { Button } from "@mui/material";
 import { NavLink } from "react-router-dom";
 
-export default function Home() {
+export default function Home({ account, connectWallet }) {
+
   return (
     <>
       <div className="homeDiv">

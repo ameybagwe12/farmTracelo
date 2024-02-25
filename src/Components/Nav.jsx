@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/Nav.css";
 import { NavLink } from "react-router-dom";
 import { Button } from "@mui/base";
 
-function Navbar() {
+function Navbar({ account, connectWallet }) {
   const [active, setActive] = useState("nav__menu");
   const [icon, setIcon] = useState("nav__toggler");
 
@@ -72,6 +72,7 @@ function Navbar() {
           }}
           variant="contained"
           color="success"
+          onClick={() => {connectWallet(); console.log("conn wallet");}}
         >
           Connect Metamask
         </Button>
