@@ -11,9 +11,9 @@ body {
   font-size: 1.6rem;
 }
 li {
-    margin-top: 10px;
+  margin-top: 10px;
   list-style: none;
-  background-color: 	#5b8731;
+  background-color: #5b8731;
   padding: 10px 38px;
   border-radius: 2px;
 }
@@ -27,16 +27,12 @@ a {
   align-items: center;
   justify-content: space-around;
   height: 8vh;
-  font-family:"Pixelify Sans"
-  
-  
-
+  font-family: "Pixelify Sans";
 }
 .nav__brand {
-  font-family: 'Oswald';
+  font-family: "Oswald";
   text-align: left;
-    position: relative;
-   
+  position: relative;
 }
 
 .nav__menu {
@@ -69,7 +65,7 @@ a {
     height: 93vh;
     width: 50vw;
     font-size: small;
-    
+
     flex-direction: column;
     transform: translateX(100%);
     transition: 0.5s ease-in;
@@ -91,5 +87,14 @@ a {
 .toggle .line3 {
   transform: rotate(45deg) translate(-4px, -5px);
 }
+.nav__link {
+  font-family: "Pixelify Sans";
+  text-decoration: none;
+  color: white;
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+}
 
-
+.nav__link:hover {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
