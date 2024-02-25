@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../Components/Nav";
 import Card1 from "../Components/Card1";
+import Card2 from "../Components/Card2";
 export default function Buy({ account, connectWallet }) {
   return (
     <>
@@ -14,7 +15,9 @@ export default function Buy({ account, connectWallet }) {
          <Card1 />
          <Card1 />
          <Card1 />
-         <Card1 /> 
+         <Card1 />
+        
+       
      
        </div>
     </>
