@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Web3 from "web3";
 import Add from "./pages/Add";
+import AddTrader from "./pages/AddTrader";
 import Buy from "./pages/Buy";
 import Home from "./pages/Home";
 import List from "./pages/List";
@@ -52,7 +53,7 @@ export default function App() {
         />
         <Route
           path="/track/:prodId"
-          element={<Track account={account} connectWallet={initializeWeb3} />}
+          element={<Track account={account} contract={contract} connectWallet={initializeWeb3} />}
         />
         <Route
           path="/buy"
@@ -68,6 +69,16 @@ export default function App() {
           path="/add"
           element={
             <Add
+              account={account}
+              contract={contract}
+              connectWallet={initializeWeb3}
+            />
+          }
+        />
+        <Route
+          path="/addTrader/:prodId"
+          element={
+            <AddTrader
               account={account}
               contract={contract}
               connectWallet={initializeWeb3}
