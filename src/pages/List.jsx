@@ -1,9 +1,11 @@
 import React from "react";
-import Navbar from "../Components/Nav";
-import Card1 from "../Components/Card1";
 import Card2 from "../Components/Card2";
+import Navbar from "../Components/Nav";
 
 export default function List({ account, connectWallet }) {
+  const getSellerProducts = async() => {
+
+  }
   return (
     <>
       <Navbar account={account} connectWallet={connectWallet} />

@@ -3,9 +3,12 @@ pragma solidity >=0.4.22 <0.9.0;
 
 contract PT {
     struct Product {
+        string prod_id;
         string name;
+        string date;
         uint bought_weight;
-        uint sold_weight;
+        address seller;
+        // uint sold_weight;
         uint price;
         string prev;
         bool isConsumed;
@@ -17,14 +20,18 @@ contract PT {
     function addProductByFarmer(
         string calldata id,
         string calldata _name,
+        string calldata _date,
         uint _bought_weight,
-        uint _sold_weight,
+        // uint _sold_weight,
         uint price
     ) public {
         Product memory product = Product(
+            id,
             _name,
+            _date,
             _bought_weight,
-            _sold_weight,
+            msg.sender,
+            // _sold_weight,
             price,
             "",
             false
@@ -35,24 +42,35 @@ contract PT {
 
     function addProductByTrader(
         string calldata _id,
+        string calldata _date,
         uint weight_to_buy,
         uint price,
         string calldata _prev
     ) public {
         Product memory prevProduct = getProduct(_prev);
-        // require(prevProduct != address(0), "Previous product must exist");
-        bool consume = false;
+        require(
+            bytes(prevProduct.name).length > 0,
+            "Previous product must exist"
+        );
+        require(prevProduct.bought_weight >= weight_to_buy);
         if (prevProduct.bought_weight == weight_to_buy) {
-            consume = true;
+            transactions[_prev].bought_weight = 0;
+            transactions[_prev].isConsumed = true;
+        } else {
+            transactions[_prev].bought_weight -= weight_to_buy;
+            transactions[_prev].date = _date;
         }
 
         Product memory product = Product(
+            _id,
             prevProduct.name,
-            prevProduct.bought_weight,
+            // prevProduct.bought_weight,
+            _date,
             weight_to_buy,
+            msg.sender,
             price,
             _prev,
-            consume
+            false
         );
 
         transactions[_id] = product;
@@ -67,10 +85,33 @@ contract PT {
     }
 
     function getAllProducts() public view returns (Product[] memory) {
-        Product[] memory output = new Product[](list.length);
+        uint j = 0;
         for (uint i = 0; i < list.length; i++) {
-            output[i] = transactions[list[i]];
+            if (!transactions[list[i]].isConsumed) {
+                j++;
+            }
         }
+        Product[] memory output = new Product[](j);
+        j = 0;
+        for (uint i = 0; i < list.length; i++) {
+            if (!transactions[list[i]].isConsumed) {
+                output[j] = transactions[list[i]];
+                j++;
+            }
+        }
+
         return output;
+    }
+
+    function getSellerProduct() public view returns (Product[] memory) {
+        Product[] memory results = new Product[](list.length);
+        uint j = 0;
+        for (uint i = 0; i < list.length; i++) {
+            if (transactions[list[i]].seller == msg.sender) {
+                results[j] = transactions[list[i]];
+                j = j + 1;
+            }
+        }
+        return results;
     }
 }

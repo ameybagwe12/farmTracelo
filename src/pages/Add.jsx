@@ -25,14 +25,14 @@ export default function Add({ account, contract, connectWallet }) {
       new Web3.providers.HttpProvider("http://localhost:7545")
     );
 
-    console.log(`ID: ${farmerValues.id}`);
+    console.log(`Values: ${farmerValues.price}`)
     contract.methods
       .addProductByFarmer(
         farmerValues.id,
         farmerValues.name,
-        parseInt(farmerValues.weight),
-        0,
-        parseInt(farmerValues.price)
+        farmerValues.date.toString(),
+        Number(farmerValues.weight),
+        Number(farmerValues.price)
       )
       .send({ from: account })
       .then((hash) => {
