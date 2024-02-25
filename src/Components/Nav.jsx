@@ -66,9 +66,10 @@ function Navbar({ account, connectWallet }) {
         <Button
           style={{
             fontFamily: "Pixelify Sans",
-            width: 300,
-            height: 70,
+            width: 400,
+            height: 50,
             fontSize: 20,
+            marginTop: 10,
           }}
           variant="contained"
           color="success"

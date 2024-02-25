@@ -1,6 +1,6 @@
 {
   "contractName": "PT",
-  "contractAddress": "0x2a244e3E0CbaD2b7aE4400F12842D74F7673CF9D",
+  "contractAddress": "0x56f27b892E89a88E991c73f53405CA85e9B92A01",
   "abi": [
     {
       "inputs": [
@@ -19543,12 +19543,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x2a244e3E0CbaD2b7aE4400F12842D74F7673CF9D",
-      "transactionHash": "0x69bea17fffe20bf8b5e3ee10a448f7c8096ccf0419f0cb53372fee7d3a37fbc3"
+      "address": "0x56f27b892E89a88E991c73f53405CA85e9B92A01",
+      "transactionHash": "0xb8df367190a0f280939a101098503aff15173722331f9fad0ac97c19bd6f537f"
     }
   },
   "schemaVersion": "3.4.16",
-  "updatedAt": "2024-02-25T08:48:57.201Z",
+  "updatedAt": "2024-02-25T10:03:29.625Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

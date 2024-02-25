@@ -108,7 +108,7 @@ export default function Add({ account, contract, connectWallet }) {
       id: "nft-image",
       onChange: (e) => setNftFile(e.target.files[0]),
       placeholderColor: "#9BCF53",
-    },  
+    },
     // Add other common fields
   ];
 
@@ -151,8 +151,7 @@ export default function Add({ account, contract, connectWallet }) {
       required: true,
       placeholderColor: "#9BCF53",
     },
-    
-  ];    
+  ];
   const handleFarmerSubmit = (e) => {
     e.preventDefault();
     // Handle farmer form submission
@@ -176,12 +175,11 @@ export default function Add({ account, contract, connectWallet }) {
   return (
     <>
       <Navbar account={account} connectWallet={connectWallet} />
-      <div style={{ margin: 70 }}>
+      <div style={{ margin: 20 }}>
         <h1
           style={{
             textAlign: "center",
             color: "white",
-            marginTop: "40px",
             fontFamily: "Pixelify Sans",
             fontSize: 35,
           }}
@@ -206,6 +204,7 @@ export default function Add({ account, contract, connectWallet }) {
               justifyContent: "center",
               padding: 25,
               borderRadius: 10,
+              width: 450,
             }}
             onSubmit={
               userType === "farmer" ? handleFarmerSubmit : handleTraderSubmit
@@ -235,7 +234,7 @@ export default function Add({ account, contract, connectWallet }) {
             <Button
               style={{
                 fontFamily: "Pixelify Sans",
-                width: 100,
+                width: 200,
                 height: 60,
                 fontSize: 20,
                 color: "#9BCF53",

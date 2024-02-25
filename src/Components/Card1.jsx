@@ -5,16 +5,17 @@ import Typography from "@mui/material/Typography";
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "../styles/Buy.css";
+import { Button } from "@mui/base";
 
 export default function Card1({ product }) {
   const randomNumber = Math.floor(Math.random() * 317) + 1;
-  
+
   return (
     <Card
       sx={{ maxWidth: 345 }}
       style={{
         width: "20%",
-        height: "300px",
+        height: "310px",
         borderRadius: "24px",
       }}
     >
@@ -27,7 +28,7 @@ export default function Card1({ product }) {
       <CardContent
         style={{
           display: "flex",
-          justifyContent: "center",
+          justifyContent: "",
           flexDirection: "column",
           alignItems: "center",
         }}
@@ -68,26 +69,61 @@ export default function Card1({ product }) {
           Bought Weight - {Number(product.bought_weight)} Kg
         </Typography>
 
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <Button
+            style={{
+              fontFamily: "Pixelify Sans",
+              width: 110,
+              height: 38,
+              fontSize: 20,
+              backgroundColor: "green",
+            }}
+            variant="contained"
+            color="success"
+          >
+            <NavLink
+              style={{ fontFamily: "Pixelify Sans" }}
+              to={`/addTrader/${product.prod_id}`}
+            >
+              Buy
+            </NavLink>
+          </Button>
+          <Button
+            style={{
+              fontFamily: "Pixelify Sans",
+              width: 125,
+              height: 38,
+              fontSize: 20,
+              marginLeft: 5,
+              backgroundColor: "green",
+            }}
+            variant="contained"
+            color="success"
+          >
+            <NavLink to={`/track/${product.prod_id}`}>Track</NavLink>
+          </Button>
+        </div>
+
         {/* <Typography
           style={{ fontFamily: "Pixelify Sans" }}
           className="cardTypo"
           variant="h5"
           color="text.secondary"
-        > */}
-        {/* Date Issued - {product.date} */}
-        <NavLink
-          style={{ backgroundColor: "black" }}
-          to={`/track/${product.prod_id}`}  
         >
-          Track This Product
-        </NavLink>
-        <NavLink
-          style={{ backgroundColor: "black" }}
-          to={`/addTrader/${product.prod_id}`}
+          
+        </Typography>
+        <Typography
+          style={{ fontFamily: "Pixelify Sans" }}
+          className="cardTypo"
+          variant="h5"
+          color="text.secondary"
         >
-          Buy This Product
-        </NavLink>
-        {/* </Typography> */}
+          <NavLink
+            style={{ color: "grey" }}
+          >
+            Buy This Product
+          </NavLink>
+        </Typography> */}
       </CardContent>
     </Card>
   );

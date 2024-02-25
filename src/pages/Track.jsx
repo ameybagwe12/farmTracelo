@@ -7,6 +7,17 @@ import Table from "../Components/Table.jsx";
 export default function Track({ account, contract, connectWallet }) {
   let { prodId } = useParams();
   const [trail, setTrail] = useState([]);
+  const [url, setUrl] = useState("");
+
+  const product = async () =>
+    await contract.methods
+      .getProduct(prodId)
+      .call()
+      .then((product) => {
+        console.log("Url: ", product.fileUrl);
+        setUrl(product.fileUrl);
+      })
+      .catch((error) => console.error(error));
 
   useEffect(() => {
     const getChain = async () => {
@@ -32,6 +43,7 @@ export default function Track({ account, contract, connectWallet }) {
   return (
     <>
       <Navbar account={account} connectWallet={connectWallet} />
+
       <div style={{ marginTop: 50, padding: 20 }}>
         <Table trackData={trail} />
       </div>

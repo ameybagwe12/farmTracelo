@@ -8,7 +8,12 @@ import { NavLink } from "react-router-dom";
 
 
 
-export default function Card2({product}) {
+export default function Card2({product, contract}) {
+
+  const consume = async () => {
+    await contract.methods.
+  }
+
   const randomNumber = Math.floor(Math.random() * 317) + 1;
   return (
     <>    <Card sx={{ maxWidth: 345 }} style={{
@@ -67,7 +72,7 @@ export default function Card2({product}) {
       }}
       variant="contained"
       color="success"
-      
+      onClick={() => consume(product)}
     >
      Consume
     </Button> 
