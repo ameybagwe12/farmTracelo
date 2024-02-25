@@ -1,7 +1,72 @@
 {
   "contractName": "PT",
-  "contractAddress": "0x682CF84347BB6c61aB5950c7dC920BAC03D8e8cb",
+  "contractAddress": "0x7E895332981f49f0df83Fd50f684B87A768d5F89",
   "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "list",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "name": "transactions",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "bought_weight",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "sold_weight",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "price",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "prev",
+          "type": "string"
+        },
+        {
+          "internalType": "bool",
+          "name": "isConsumed",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
     {
       "inputs": [
         {
@@ -15,13 +80,13 @@
           "type": "string"
         },
         {
-          "internalType": "string",
-          "name": "_date",
-          "type": "string"
+          "internalType": "uint256",
+          "name": "_bought_weight",
+          "type": "uint256"
         },
         {
           "internalType": "uint256",
-          "name": "_bought_weight",
+          "name": "_sold_weight",
           "type": "uint256"
         },
         {
@@ -40,11 +105,6 @@
         {
           "internalType": "string",
           "name": "_id",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "_date",
           "type": "string"
         },
         {
@@ -69,56 +129,6 @@
       "type": "function"
     },
     {
-      "inputs": [],
-      "name": "getAllProducts",
-      "outputs": [
-        {
-          "components": [
-            {
-              "internalType": "string",
-              "name": "prod_id",
-              "type": "string"
-            },
-            {
-              "internalType": "string",
-              "name": "name",
-              "type": "string"
-            },
-            {
-              "internalType": "string",
-              "name": "date",
-              "type": "string"
-            },
-            {
-              "internalType": "uint256",
-              "name": "bought_weight",
-              "type": "uint256"
-            },
-            {
-              "internalType": "uint256",
-              "name": "price",
-              "type": "uint256"
-            },
-            {
-              "internalType": "string",
-              "name": "prev",
-              "type": "string"
-            },
-            {
-              "internalType": "bool",
-              "name": "isConsumed",
-              "type": "bool"
-            }
-          ],
-          "internalType": "struct PT.Product[]",
-          "name": "",
-          "type": "tuple[]"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
       "inputs": [
         {
           "internalType": "string",
@@ -132,22 +142,17 @@
           "components": [
             {
               "internalType": "string",
-              "name": "prod_id",
-              "type": "string"
-            },
-            {
-              "internalType": "string",
               "name": "name",
-              "type": "string"
-            },
-            {
-              "internalType": "string",
-              "name": "date",
               "type": "string"
             },
             {
               "internalType": "uint256",
               "name": "bought_weight",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "sold_weight",
               "type": "uint256"
             },
             {
@@ -172,75 +177,54 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "name": "list",
+      "inputs": [],
+      "name": "getAllProducts",
       "outputs": [
         {
-          "internalType": "string",
+          "components": [
+            {
+              "internalType": "string",
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "internalType": "uint256",
+              "name": "bought_weight",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "sold_weight",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "price",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "prev",
+              "type": "string"
+            },
+            {
+              "internalType": "bool",
+              "name": "isConsumed",
+              "type": "bool"
+            }
+          ],
+          "internalType": "struct PT.Product[]",
           "name": "",
-          "type": "string"
+          "type": "tuple[]"
         }
       ],
       "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "string",
-          "name": "",
-          "type": "string"
-        }
-      ],
-      "name": "transactions",
-      "outputs": [
-        {
-          "internalType": "string",
-          "name": "prod_id",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "name",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "date",
-          "type": "string"
-        },
-        {
-          "internalType": "uint256",
-          "name": "bought_weight",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "price",
-          "type": "uint256"
-        },
-        {
-          "internalType": "string",
-          "name": "prev",
-          "type": "string"
-        },
-        {
-          "internalType": "bool",
-          "name": "isConsumed",
-          "type": "bool"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"string\",\"name\":\"id\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_name\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"_bought_weight\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_sold_weight\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"}],\"name\":\"addProductByFarmer\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_id\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"weight_to_buy\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"_prev\",\"type\":\"string\"}],\"name\":\"addProductByTrader\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getAllProducts\",\"outputs\":[{\"components\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"bought_weight\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"sold_weight\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"prev\",\"type\":\"string\"},{\"internalType\":\"bool\",\"name\":\"isConsumed\",\"type\":\"bool\"}],\"internalType\":\"struct PT.Product[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_id\",\"type\":\"string\"}],\"name\":\"getProduct\",\"outputs\":[{\"components\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"bought_weight\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"sold_weight\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"prev\",\"type\":\"string\"},{\"internalType\":\"bool\",\"name\":\"isConsumed\",\"type\":\"bool\"}],\"internalType\":\"struct PT.Product\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"list\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"name\":\"transactions\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"bought_weight\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"sold_weight\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"prev\",\"type\":\"string\"},{\"internalType\":\"bool\",\"name\":\"isConsumed\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/PT.sol\":\"PT\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/PT.sol\":{\"keccak256\":\"0xbf2bfc905459aca0548d9c8d7169145f7ed51cca5385128da9b9bbf54914714e\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://bdfc9f9e49deabac87bb297252b316facdc51aecfe883025ea711b1edcc292c6\",\"dweb:/ipfs/QmdmKv2qEbhUfmh1M39dLGwpqLHV9TgtWuxVEKpdM5q8em\"]}},\"version\":1}",
@@ -13387,7 +13371,9 @@
   "ast": {
     "absolutePath": "project:/contracts/PT.sol",
     "exportedSymbols": {
-      "PT": [179]
+      "PT": [
+        179
+      ]
     },
     "id": 180,
     "license": "MIT",
@@ -13395,7 +13381,15 @@
     "nodes": [
       {
         "id": 1,
-        "literals": ["solidity", ">=", "0.4", ".22", "<", "0.9", ".0"],
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22",
+          "<",
+          "0.9",
+          ".0"
+        ],
         "nodeType": "PragmaDirective",
         "src": "33:32:0"
       },
@@ -13407,7 +13401,9 @@
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 179,
-        "linearizedBaseContracts": [179],
+        "linearizedBaseContracts": [
+          179
+        ],
         "name": "PT",
         "nameLocation": "78:2:0",
         "nodeType": "ContractDefinition",
@@ -13626,7 +13622,9 @@
                 "pathNode": {
                   "id": 16,
                   "name": "Product",
-                  "nameLocations": ["284:7:0"],
+                  "nameLocations": [
+                    "284:7:0"
+                  ],
                   "nodeType": "IdentifierPath",
                   "referencedDeclaration": 14,
                   "src": "284:7:0"
@@ -13685,7 +13683,9 @@
               "src": "530:256:0",
               "statements": [
                 {
-                  "assignments": [37],
+                  "assignments": [
+                    37
+                  ],
                   "declarations": [
                     {
                       "constant": false,
@@ -13708,7 +13708,9 @@
                         "pathNode": {
                           "id": 35,
                           "name": "Product",
-                          "nameLocations": ["541:7:0"],
+                          "nameLocations": [
+                            "541:7:0"
+                          ],
                           "nodeType": "IdentifierPath",
                           "referencedDeclaration": 14,
                           "src": "541:7:0"
@@ -14172,7 +14174,9 @@
               "src": "948:556:0",
               "statements": [
                 {
-                  "assignments": [73],
+                  "assignments": [
+                    73
+                  ],
                   "declarations": [
                     {
                       "constant": false,
@@ -14195,7 +14199,9 @@
                         "pathNode": {
                           "id": 71,
                           "name": "Product",
-                          "nameLocations": ["959:7:0"],
+                          "nameLocations": [
+                            "959:7:0"
+                          ],
                           "nodeType": "IdentifierPath",
                           "referencedDeclaration": 14,
                           "src": "959:7:0"
@@ -14264,7 +14270,9 @@
                   "src": "959:46:0"
                 },
                 {
-                  "assignments": [79],
+                  "assignments": [
+                    79
+                  ],
                   "declarations": [
                     {
                       "constant": false,
@@ -14432,7 +14440,9 @@
                   }
                 },
                 {
-                  "assignments": [94],
+                  "assignments": [
+                    94
+                  ],
                   "declarations": [
                     {
                       "constant": false,
@@ -14455,7 +14465,9 @@
                         "pathNode": {
                           "id": 92,
                           "name": "Product",
-                          "nameLocations": ["1227:7:0"],
+                          "nameLocations": [
+                            "1227:7:0"
+                          ],
                           "nodeType": "IdentifierPath",
                           "referencedDeclaration": 14,
                           "src": "1227:7:0"
@@ -15027,7 +15039,9 @@
                     "pathNode": {
                       "id": 123,
                       "name": "Product",
-                      "nameLocations": ["1588:7:0"],
+                      "nameLocations": [
+                        "1588:7:0"
+                      ],
                       "nodeType": "IdentifierPath",
                       "referencedDeclaration": 14,
                       "src": "1588:7:0"
@@ -15057,7 +15071,9 @@
               "src": "1754:204:0",
               "statements": [
                 {
-                  "assignments": [143],
+                  "assignments": [
+                    143
+                  ],
                   "declarations": [
                     {
                       "constant": false,
@@ -15081,7 +15097,9 @@
                           "pathNode": {
                             "id": 140,
                             "name": "Product",
-                            "nameLocations": ["1765:7:0"],
+                            "nameLocations": [
+                              "1765:7:0"
+                            ],
                             "nodeType": "IdentifierPath",
                             "referencedDeclaration": 14,
                             "src": "1765:7:0"
@@ -15160,7 +15178,9 @@
                           "pathNode": {
                             "id": 144,
                             "name": "Product",
-                            "nameLocations": ["1795:7:0"],
+                            "nameLocations": [
+                              "1795:7:0"
+                            ],
                             "nodeType": "IdentifierPath",
                             "referencedDeclaration": 14,
                             "src": "1795:7:0"
@@ -15385,7 +15405,9 @@
                   },
                   "id": 174,
                   "initializationExpression": {
-                    "assignments": [153],
+                    "assignments": [
+                      153
+                    ],
                     "declarations": [
                       {
                         "constant": false,
@@ -15530,7 +15552,9 @@
                       "pathNode": {
                         "id": 134,
                         "name": "Product",
-                        "nameLocations": ["1736:7:0"],
+                        "nameLocations": [
+                          "1736:7:0"
+                        ],
                         "nodeType": "IdentifierPath",
                         "referencedDeclaration": 14,
                         "src": "1736:7:0"
@@ -15577,12 +15601,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x682CF84347BB6c61aB5950c7dC920BAC03D8e8cb",
-      "transactionHash": "0x79a4c4dc76ebaea869fece4a056361b5aad6382cff9ce0393852b97b5e1c8f3b"
+      "address": "0x7E895332981f49f0df83Fd50f684B87A768d5F89",
+      "transactionHash": "0x710702c9a00ca54e5bebe8e47bdfced27c8e60d61039643b66b9259af0398826"
     }
   },
   "schemaVersion": "3.4.16",
-  "updatedAt": "2024-02-25T03:02:54.373Z",
+  "updatedAt": "2024-02-25T03:24:19.387Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

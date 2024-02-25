@@ -8,6 +8,7 @@ import Typography from "@mui/material/Typography";
 
 export default function Card1({ product }) {
   const randomNumber = Math.floor(Math.random() * 317) + 1;
+  console.log(product.price);
 
   return (
     <Card
@@ -29,10 +30,10 @@ export default function Card1({ product }) {
           {product.name}
         </Typography>
         <Typography variant="h5" color="text.secondary">
-          12/58/55
+          Price - {Number(product.price)} Rs.
         </Typography>
         <Typography variant="h5" color="text.secondary">
-          46262
+          Bought Weight - {Number(product.bought_weight)} Kg
         </Typography>
       </CardContent>
     </Card>
