@@ -11,7 +11,7 @@ import { NavLink } from "react-router-dom";
 export default function Card2({product, contract}) {
 
   const consume = async () => {
-    await contract.methods.
+    // await contract.methods.
   }
 
   const randomNumber = Math.floor(Math.random() * 317) + 1;
