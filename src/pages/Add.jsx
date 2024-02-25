@@ -7,6 +7,7 @@ import Navbar from "../Components/Nav";
 
 export default function Add({ account, contract, connectWallet }) {
   const [userType, setUserType] = useState("farmer");
+  const [nftFile, setNftFile] = useState("");
   const unique_id = uuid();
   const small_id = unique_id.slice(0, 4);
   const today = new Date();
@@ -96,8 +97,21 @@ export default function Add({ account, contract, connectWallet }) {
       placeholderColor: "#9BCF53",
       disabled: true,
     },
+    {
+      id: 5,
+      name: "photo",
+      type: "file",
+      placeholder: "Upload Img of Produce",
+      label: "Photo",
+      required: true,
+      accept: "image/*",
+      id: "nft-thumbnail",
+      onChange: (e) => setNftFile(e.target.files[0]),
+      placeholderColor: "#9BCF53",
+    },  
     // Add other common fields
   ];
+
   const inputs1 = [
     {
       id: 1,
@@ -119,7 +133,6 @@ export default function Add({ account, contract, connectWallet }) {
       placeholderColor: "#9BCF53",
       disabled: true,
     },
-
     {
       id: 3,
       name: "price",
@@ -138,9 +151,8 @@ export default function Add({ account, contract, connectWallet }) {
       required: true,
       placeholderColor: "#9BCF53",
     },
-
-    // Add other common fields
-  ];
+    
+  ];    
   const handleFarmerSubmit = (e) => {
     e.preventDefault();
     // Handle farmer form submission
