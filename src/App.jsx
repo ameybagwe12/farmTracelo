@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Web3 from "web3";
-import contractData from "./contract/PT.json";
+import contractData from "./smart-contract/build/contracts/PT.json";
 import Add from "./pages/Add";
 import Buy from "./pages/Buy";
 import Home from "./pages/Home";
@@ -56,11 +56,23 @@ export default function App() {
         />
         <Route
           path="/buy"
-          element={<Buy account={account} contract={contract} connectWallet={initializeWeb3} />}
+          element={
+            <Buy
+              account={account}
+              contract={contract}
+              connectWallet={initializeWeb3}
+            />
+          }
         />
         <Route
           path="/add"
-          element={<Add account={account} contract={contract} connectWallet={initializeWeb3} />}
+          element={
+            <Add
+              account={account}
+              contract={contract}
+              connectWallet={initializeWeb3}
+            />
+          }
         />
         <Route
           path="/myList"

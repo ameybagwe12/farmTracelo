@@ -10,24 +10,42 @@ export default function Add({ account, contract, connectWallet }) {
   const unique_id = uuid();
   const small_id = unique_id.slice(0, 4);
   const today = new Date();
-  const formattedDate = today.toISOString().split('T')[0];
+  const formattedDate = today.toISOString().split("T")[0];
   console.log(small_id);
   const [farmerValues, setFarmerValues] = useState({
     id: small_id,
     name: "",
     price: "",
     weight: "",
-    date:formattedDate
-    
+    date: formattedDate,
   });
-  
-  const addProduct = async() => {
-    const web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:7545"))
 
-    console.log(`ID: ${farmerValues.id}`)
-    contract.methods.addProductByFarmer(farmerValues.id, farmerValues.name, parseInt(farmerValues.weight), 0, parseInt(farmerValues.price)).send({from: account})
-    .then(hash => console.log(`Hash: ${hash}`))
-  }
+  const addProduct = async () => {
+    const web3 = new Web3(
+      new Web3.providers.HttpProvider("http://localhost:7545")
+    );
+
+    console.log(`ID: ${farmerValues.id}`);
+    contract.methods
+      .addProductByFarmer(
+        farmerValues.id,
+        farmerValues.name,
+        parseInt(farmerValues.weight),
+        0,
+        parseInt(farmerValues.price)
+      )
+      .send({ from: account })
+      .then((hash) => {
+        console.log(`Hash: ${hash}`);
+        setFarmerValues({
+          id: small_id,
+          name: "",
+          price: "",
+          weight: "",
+          date: formattedDate,
+        });
+      });
+  };
 
   const [traderValues, setTraderValues] = useState({
     // Define trader form fields here
@@ -41,7 +59,7 @@ export default function Add({ account, contract, connectWallet }) {
       placeholder: "Username",
       label: "Product ID",
       required: true,
-      disabled:true
+      disabled: true,
     },
     {
       id: 2,
@@ -72,19 +90,19 @@ export default function Add({ account, contract, connectWallet }) {
       id: 5,
       name: "date",
       type: "text",
-      value:formattedDate,
+      value: formattedDate,
       label: "Date",
       required: true,
       placeholderColor: "#9BCF53",
-      disabled: true
-    }
+      disabled: true,
+    },
     // Add other common fields
   ];
   const inputs1 = [
     {
       id: 1,
       name: "id",
-      value:small_id,
+      value: small_id,
       type: "text",
       placeholder: "Product ID",
       label: "Product ID",
@@ -99,7 +117,7 @@ export default function Add({ account, contract, connectWallet }) {
       label: "Product Name",
       required: true,
       placeholderColor: "#9BCF53",
-      disabled: true
+      disabled: true,
     },
 
     {
@@ -120,7 +138,7 @@ export default function Add({ account, contract, connectWallet }) {
       required: true,
       placeholderColor: "#9BCF53",
     },
-    
+
     // Add other common fields
   ];
   const handleFarmerSubmit = (e) => {
@@ -151,8 +169,7 @@ export default function Add({ account, contract, connectWallet }) {
           style={{
             textAlign: "center",
             color: "white",
-            marginBottom: "44px",
-            marginTop: "83px",
+            marginTop: "60px",
             fontFamily: "Pixelify Sans",
             fontSize: 35,
           }}
@@ -161,7 +178,11 @@ export default function Add({ account, contract, connectWallet }) {
         </h1>
         <div
           className="bounce-in-top"
-          style={{ display: "flex", justifyContent: "space-around" }}
+          style={{
+            display: "flex",
+            justifyContent: "space-around",
+            textAlign: "center",
+          }}
         >
           <form
             className="bounce-in-top"
@@ -171,8 +192,7 @@ export default function Add({ account, contract, connectWallet }) {
               flexDirection: "column",
               backgroundColor: "#436850",
               justifyContent: "center",
-              paddingLeft: 40,
-              paddingRight: 40,
+              padding: 25,
               borderRadius: 10,
             }}
             onSubmit={
@@ -184,7 +204,11 @@ export default function Add({ account, contract, connectWallet }) {
                   <FormInput
                     key={input.id}
                     {...input}
-                    value={userType === "farmer" ? farmerValues[input.name] : traderValues[input.name]}
+                    value={
+                      userType === "farmer"
+                        ? farmerValues[input.name]
+                        : traderValues[input.name]
+                    }
                     onChange={handleInputChange}
                   />
                 ))
