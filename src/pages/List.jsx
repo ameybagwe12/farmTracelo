@@ -18,7 +18,7 @@ export default function List({ account,contract, connectWallet }) {
       <div
         style={{
           display: "flex",
-          flexWrap: "wrap",
+          flexWrap: "wrap",   
           justifyContent: "space-around",
           marginTop: "50px",
         }}
