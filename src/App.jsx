@@ -51,7 +51,7 @@ export default function App() {
           element={<Home account={account} connectWallet={initializeWeb3} />}
         />
         <Route
-          path="/track"
+          path="/track/:prodId"
           element={<Track account={account} connectWallet={initializeWeb3} />}
         />
         <Route
@@ -76,8 +76,13 @@ export default function App() {
         />
         <Route
           path="/myList"
-      
-          element={<List account={account} contract={contract} connectWallet={initializeWeb3} />}
+          element={
+            <List
+              account={account}
+              contract={contract}
+              connectWallet={initializeWeb3}
+            />
+          }
         />
       </Routes>
     </div>
