@@ -60,7 +60,7 @@ export default function App() {
         />
         <Route
           path="/add"
-          element={<Add account={account} connectWallet={initializeWeb3} />}
+          element={<Add account={account} contract={contract} connectWallet={initializeWeb3} />}
         />
         <Route
           path="/myList"
