@@ -43,11 +43,11 @@ function Navbar({ account, connectWallet }) {
         <li className="nav__item">
           <NavLink
             style={{ fontFamily: "Pixelify Sans" }}
-            to="/track"
+            to="/myList"
             className="nav__link"
             onClick={handleNav}
           >
-            Track
+            My List
           </NavLink>
         </li>
 
@@ -72,7 +72,10 @@ function Navbar({ account, connectWallet }) {
           }}
           variant="contained"
           color="success"
-          onClick={() => {connectWallet(); console.log("conn wallet");}}
+          onClick={() => {
+            connectWallet();
+            console.log("conn wallet");
+          }}
         >
           Connect Metamask
         </Button>
