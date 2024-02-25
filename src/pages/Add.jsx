@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Navbar from "../Components/Nav";
 import { Button } from "@mui/base";
 import { v4 as uuid } from "uuid";
@@ -8,14 +8,20 @@ export default function Add({ account, connectWallet }) {
   const [userType, setUserType] = useState("farmer");
   const unique_id = uuid();
   const small_id = unique_id.slice(0, 4);
+  const today = new Date();
+  const formattedDate = today.toISOString().split('T')[0];
   console.log(small_id);
   const [farmerValues, setFarmerValues] = useState({
     id: small_id,
     name: "",
     price: "",
     weight: "",
+    date:formattedDate
     
   });
+  
+
+
 
   const [traderValues, setTraderValues] = useState({
     // Define trader form fields here
@@ -56,6 +62,16 @@ export default function Add({ account, connectWallet }) {
       label: "Weight",
       required: true,
     },
+    {
+      id: 5,
+      name: "date",
+      type: "text",
+      value:formattedDate,
+      label: "Date",
+      required: true,
+      placeholderColor: "#9BCF53",
+      disabled: true
+    }
     // Add other common fields
   ];
   const inputs1 = [
@@ -77,7 +93,7 @@ export default function Add({ account, connectWallet }) {
       label: "Product Name",
       required: true,
       placeholderColor: "#9BCF53",
-      disabled: true,
+      disabled: true
     },
 
     {
@@ -98,6 +114,7 @@ export default function Add({ account, connectWallet }) {
       required: true,
       placeholderColor: "#9BCF53",
     },
+    
     // Add other common fields
   ];
   const handleFarmerSubmit = (e) => {
@@ -117,6 +134,7 @@ export default function Add({ account, connectWallet }) {
     const setValues = userType === "farmer" ? setFarmerValues : setTraderValues;
 
     setValues({ ...values, [e.target.name]: e.target.value });
+    console.log(` values is ${farmerValues.name}`);
   };
 
   return (
@@ -160,7 +178,7 @@ export default function Add({ account, connectWallet }) {
                   <FormInput
                     key={input.id}
                     {...input}
-                    value={farmerValues[input.name]}
+                    value={userType === "farmer" ? farmerValues[input.name] : traderValues[input.name]}
                     onChange={handleInputChange}
                   />
                 ))
