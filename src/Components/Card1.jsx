@@ -1,14 +1,14 @@
-import React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import "../styles/Buy.css";
+import React from "react";
 import { NavLink } from "react-router-dom";
+import "../styles/Buy.css";
 
 export default function Card1({ product }) {
   const randomNumber = Math.floor(Math.random() * 317) + 1;
-
+  
   return (
     <Card
       sx={{ maxWidth: 345 }}
@@ -79,7 +79,13 @@ export default function Card1({ product }) {
           style={{ backgroundColor: "black" }}
           to={`/track/${product.prod_id}`}
         >
-          Hello
+          Track This Product
+        </NavLink>
+        <NavLink
+          style={{ backgroundColor: "black" }}
+          to={`/addTrader/${product.prod_id}`}
+        >
+          Buy This Product
         </NavLink>
         {/* </Typography> */}
       </CardContent>

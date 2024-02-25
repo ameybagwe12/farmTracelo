@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Web3 } from "web3";
 import Card1 from "../Components/Card1";
 import Navbar from "../Components/Nav";

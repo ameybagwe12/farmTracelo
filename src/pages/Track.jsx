@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 import Navbar from "../Components/Nav";
 import "../styles/Track.css";
-import { useParams } from "react-router-dom";
 
-export default function Track({ account, connectWallet }) {
+export default function Track({ account, contract, connectWallet }) {
   let { prodId } = useParams();
 
   //   async function main() {
@@ -31,9 +31,27 @@ export default function Track({ account, connectWallet }) {
   //       process.exit(1);
   //     });
 
+  const [trail, setTrail] = useState([])
+  const getChain = async() => {
+    // const web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:7545"))
+
+    console.log("Prod ID: ", prodId)
+    await recur(contract, prodId, setTrail)
+    console.log("Trail:", trail)
+  }
+
+  const recur = async(contract, prodId, setTrail) => {
+    const resp = await contract.methods.getProduct(prodId).call()
+    setTrail((prevTrail) => [...prevTrail, resp])
+    if (resp.prev !== "") {
+      await recur(contract, resp.prev, setTrail)
+    }
+  }
+
   return (
     <>
       <Navbar account={account} connectWallet={connectWallet} />
+      <button onClick={async () => await getChain()}>Get Trail</button>
     </>
   );
 }
