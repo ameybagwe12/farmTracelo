@@ -4,6 +4,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import "../styles/Buy.css";
+import { NavLink } from "react-router-dom";
 
 export default function Card1({ product }) {
   const randomNumber = Math.floor(Math.random() * 317) + 1;
@@ -67,14 +68,20 @@ export default function Card1({ product }) {
           Bought Weight - {Number(product.bought_weight)} Kg
         </Typography>
 
-        <Typography
+        {/* <Typography
           style={{ fontFamily: "Pixelify Sans" }}
           className="cardTypo"
           variant="h5"
           color="text.secondary"
+        > */}
+        {/* Date Issued - {product.date} */}
+        <NavLink
+          style={{ backgroundColor: "black" }}
+          to={`/track/${product.prod_id}`}
         >
-          Date Issued - {product.date}
-        </Typography>
+          Hello
+        </NavLink>
+        {/* </Typography> */}
       </CardContent>
     </Card>
   );

@@ -35,7 +35,12 @@ export default function Buy({ account, contract, connectWallet }) {
       >
         {buyData &&
           buyData.map((product, index) => (
-            <Card1 className="col" key={index} product={product} />
+            <Card1
+              onClick={() => {}}
+              className="col"
+              key={index}
+              product={product}
+            />
           ))}
       </div>
     </>
