@@ -5,71 +5,6 @@
     {
       "inputs": [
         {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "name": "list",
-      "outputs": [
-        {
-          "internalType": "string",
-          "name": "",
-          "type": "string"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function",
-      "constant": true
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "string",
-          "name": "",
-          "type": "string"
-        }
-      ],
-      "name": "transactions",
-      "outputs": [
-        {
-          "internalType": "string",
-          "name": "name",
-          "type": "string"
-        },
-        {
-          "internalType": "uint256",
-          "name": "bought_weight",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "sold_weight",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "price",
-          "type": "uint256"
-        },
-        {
-          "internalType": "string",
-          "name": "prev",
-          "type": "string"
-        },
-        {
-          "internalType": "bool",
-          "name": "isConsumed",
-          "type": "bool"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function",
-      "constant": true
-    },
-    {
-      "inputs": [
-        {
           "internalType": "string",
           "name": "id",
           "type": "string"
@@ -80,13 +15,13 @@
           "type": "string"
         },
         {
-          "internalType": "uint256",
-          "name": "_bought_weight",
-          "type": "uint256"
+          "internalType": "string",
+          "name": "_date",
+          "type": "string"
         },
         {
           "internalType": "uint256",
-          "name": "_sold_weight",
+          "name": "_bought_weight",
           "type": "uint256"
         },
         {
@@ -105,6 +40,11 @@
         {
           "internalType": "string",
           "name": "_id",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "_date",
           "type": "string"
         },
         {
@@ -129,58 +69,6 @@
       "type": "function"
     },
     {
-      "inputs": [
-        {
-          "internalType": "string",
-          "name": "_id",
-          "type": "string"
-        }
-      ],
-      "name": "getProduct",
-      "outputs": [
-        {
-          "components": [
-            {
-              "internalType": "string",
-              "name": "name",
-              "type": "string"
-            },
-            {
-              "internalType": "uint256",
-              "name": "bought_weight",
-              "type": "uint256"
-            },
-            {
-              "internalType": "uint256",
-              "name": "sold_weight",
-              "type": "uint256"
-            },
-            {
-              "internalType": "uint256",
-              "name": "price",
-              "type": "uint256"
-            },
-            {
-              "internalType": "string",
-              "name": "prev",
-              "type": "string"
-            },
-            {
-              "internalType": "bool",
-              "name": "isConsumed",
-              "type": "bool"
-            }
-          ],
-          "internalType": "struct PT.Product",
-          "name": "",
-          "type": "tuple"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function",
-      "constant": true
-    },
-    {
       "inputs": [],
       "name": "getAllProducts",
       "outputs": [
@@ -188,17 +76,22 @@
           "components": [
             {
               "internalType": "string",
+              "name": "prod_id",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
               "name": "name",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "date",
               "type": "string"
             },
             {
               "internalType": "uint256",
               "name": "bought_weight",
-              "type": "uint256"
-            },
-            {
-              "internalType": "uint256",
-              "name": "sold_weight",
               "type": "uint256"
             },
             {
@@ -223,8 +116,131 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_id",
+          "type": "string"
+        }
+      ],
+      "name": "getProduct",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "string",
+              "name": "prod_id",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "date",
+              "type": "string"
+            },
+            {
+              "internalType": "uint256",
+              "name": "bought_weight",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "price",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "prev",
+              "type": "string"
+            },
+            {
+              "internalType": "bool",
+              "name": "isConsumed",
+              "type": "bool"
+            }
+          ],
+          "internalType": "struct PT.Product",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "list",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "name": "transactions",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "prod_id",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "date",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "bought_weight",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "price",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "prev",
+          "type": "string"
+        },
+        {
+          "internalType": "bool",
+          "name": "isConsumed",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"string\",\"name\":\"id\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_name\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"_bought_weight\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_sold_weight\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"}],\"name\":\"addProductByFarmer\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_id\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"weight_to_buy\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"_prev\",\"type\":\"string\"}],\"name\":\"addProductByTrader\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getAllProducts\",\"outputs\":[{\"components\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"bought_weight\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"sold_weight\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"prev\",\"type\":\"string\"},{\"internalType\":\"bool\",\"name\":\"isConsumed\",\"type\":\"bool\"}],\"internalType\":\"struct PT.Product[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_id\",\"type\":\"string\"}],\"name\":\"getProduct\",\"outputs\":[{\"components\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"bought_weight\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"sold_weight\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"prev\",\"type\":\"string\"},{\"internalType\":\"bool\",\"name\":\"isConsumed\",\"type\":\"bool\"}],\"internalType\":\"struct PT.Product\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"list\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"name\":\"transactions\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"bought_weight\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"sold_weight\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"prev\",\"type\":\"string\"},{\"internalType\":\"bool\",\"name\":\"isConsumed\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/PT.sol\":\"PT\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/PT.sol\":{\"keccak256\":\"0xbf2bfc905459aca0548d9c8d7169145f7ed51cca5385128da9b9bbf54914714e\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://bdfc9f9e49deabac87bb297252b316facdc51aecfe883025ea711b1edcc292c6\",\"dweb:/ipfs/QmdmKv2qEbhUfmh1M39dLGwpqLHV9TgtWuxVEKpdM5q8em\"]}},\"version\":1}",
