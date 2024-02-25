@@ -1,10 +1,11 @@
-import React, { useState,useEffect } from "react";
-import Navbar from "../Components/Nav";
 import { Button } from "@mui/base";
+import React, { useState } from "react";
 import { v4 as uuid } from "uuid";
+import { Web3 } from "web3";
 import FormInput from "../Components/FormInput";
+import Navbar from "../Components/Nav";
 
-export default function Add({ account, connectWallet }) {
+export default function Add({ account, contract, connectWallet }) {
   const [userType, setUserType] = useState("farmer");
   const unique_id = uuid();
   const small_id = unique_id.slice(0, 4);
@@ -20,8 +21,13 @@ export default function Add({ account, connectWallet }) {
     
   });
   
+  const addProduct = async() => {
+    const web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:7545"))
 
-
+    console.log(`ID: ${farmerValues.id}`)
+    contract.methods.addProductByFarmer(farmerValues.id, farmerValues.name, parseInt(farmerValues.weight), 0, parseInt(farmerValues.price)).send({from: account})
+    .then(hash => console.log(`Hash: ${hash}`))
+  }
 
   const [traderValues, setTraderValues] = useState({
     // Define trader form fields here
@@ -201,6 +207,7 @@ export default function Add({ account, connectWallet }) {
               }}
               variant="contained"
               color="success"
+              onClick={() => addProduct()}
             >
               Submit
             </Button>

@@ -7,13 +7,20 @@ export default function Buy({ account, contract, connectWallet }) {
   const addProduct = async () => {
     const web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:7545"))
 
-    contract.methods.getProduct("asjhfoashdgojsh").call()
+    contract.methods.getProduct("3a5a").call()
     .then(data => console.log(data))
    
   }
   
+  const getAllProducts = async() => {
+    const web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:7545"))
+
+    contract.methods.getAllProducts().call() 
+    .then(data => console.log(data))
+  }
   const run = async () => {
-    addProduct()
+    // addProduct()
+    getAllProducts()
   }
   return (
     <>
