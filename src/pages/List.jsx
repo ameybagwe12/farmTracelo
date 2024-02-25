@@ -24,7 +24,7 @@ export default function List({ account,contract, connectWallet }) {
           flexWrap: "wrap",   
           justifyContent: "space-around",
           marginTop: "50px",
-        }}
+        }}  
       >
         <Card2 />
         <Card2 />

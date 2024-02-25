@@ -77,7 +77,7 @@ export default function Card1({ product }) {
         {/* Date Issued - {product.date} */}
         <NavLink
           style={{ backgroundColor: "black" }}
-          to={`/track/${product.prod_id}`}
+          to={`/track/${product.prod_id}`}  
         >
           Track This Product
         </NavLink>
