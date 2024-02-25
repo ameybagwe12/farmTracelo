@@ -1,14 +1,14 @@
-import React from 'react'
+import { Button } from '@mui/material';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import { NavLink } from "react-router-dom";
 import Typography from '@mui/material/Typography';
-import { Button } from '@mui/material';
+import React from 'react';
+import { NavLink } from "react-router-dom";
 
 
-export default function Card2({nft}) {
+
+export default function Card2({product}) {
   const randomNumber = Math.floor(Math.random() * 317) + 1;
   return (
     <>    <Card sx={{ maxWidth: 345 }} style={{
@@ -25,14 +25,14 @@ export default function Card2({nft}) {
      />
     <CardContent>
       <Typography gutterBottom variant="h3" component="div">
-      Wheat
+        {product.name}
       
       
       <Typography variant="h5" color="text.secondary">
-      12/58/55
+        {product.date}
       </Typography>
       <Typography variant="h5" color="text.secondary">
-      46262 
+        {product.price}
       </Typography>
 
       </Typography>
@@ -50,7 +50,7 @@ export default function Card2({nft}) {
     >
     <NavLink
     style={{ fontFamily: "Pixelify Sans" }}
-    to="/add"
+    to={`/addTrader/${product.prod_id}`}
     
    
   >
