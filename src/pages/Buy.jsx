@@ -34,7 +34,9 @@ export default function Buy({ account, contract, connectWallet }) {
          <Card1 />
          <Card1 />
          <Card1 />
-         <Card1 /> 
+         <Card1 />
+        
+       
      
        </div>
        <button onClick={() => run()}>Run</button>

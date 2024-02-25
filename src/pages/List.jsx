@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../Components/Nav";
 import Card1 from "../Components/Card1";
+import Card2 from "../Components/Card2";
 
 export default function List({ account, connectWallet }) {
   return (
@@ -14,10 +15,10 @@ export default function List({ account, connectWallet }) {
           marginTop: "50px",
         }}
       >
-        <Card1 />
-        <Card1 />
-        <Card1 />
-        <Card1 />
+        <Card2 />
+        <Card2 />
+        <Card2 />
+        <Card2 />
       </div>
     </>
   );
