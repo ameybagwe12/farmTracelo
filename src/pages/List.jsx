@@ -34,7 +34,7 @@ export default function List({ account, contract, connectWallet }) {
       >
         {products &&
           products.map((product) => {
-            return <Card2 className="col" key={product.id} product={product} />;
+            return <Card2 className="col" key={product.id} product={product} contract={contract} account={account} />;
           })}
       </div>
       <div></div>
